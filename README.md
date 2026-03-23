@@ -1,5 +1,3 @@
-Alright Giggles 🐰✨
-Here’s a **clean, professional README description** you can paste into your `README.md` file for your final review.
 
 #  Airflow Simulation Analyzer for Smart Interior Layouts
 
