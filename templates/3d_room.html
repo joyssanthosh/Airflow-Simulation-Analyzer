@@ -1,0 +1,10 @@
+{% extends "dashboard_base.html" %}
+{% block dashboard_content %}
+<div class="glass-panel" style="padding: 20px; text-align: center;">
+    <h2>3D Animated Airflow Room</h2>
+    <div id="plotly3d" style="margin-top: 20px; height: 500px; background: rgba(0,0,0,0.2); border-radius: 8px; position: relative; overflow: hidden;">
+        <p style="color: var(--text-muted);">Simulation data not loaded.</p>
+    </div>
+    <button class="btn btn-outline" style="margin-top: 20px; width: auto;" onclick="toggleAnimation()">Toggle Animation</button>
+</div>
+{% endblock %}

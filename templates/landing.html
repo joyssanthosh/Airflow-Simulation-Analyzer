@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="center-wrapper">
+    <div class="glass-panel" style="max-width: 500px;">
+        <div style="text-align: center;">
+            <img src="{{ url_for('static', filename='img/aeris_logo.png') }}" alt="Aeris Logo" style="height: 100px; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+            <h1 style="font-size: 3rem; font-weight: 700;">Aeris</h1>
+        </div>
+        
+        <div style="margin-top: 30px; display: flex; flex-direction: column; gap: 15px;">
+            <a href="{{ url_for('login') }}" class="btn btn-primary">Login as User</a>
+            <a href="{{ url_for('login') }}" class="btn btn-outline">Login as Admin</a>
+            <a href="{{ url_for('register') }}" class="btn btn-outline">Register (New User)</a>
+            <a href="{{ url_for('intro') }}" class="btn btn-outline">What is Airflow Simulation?</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

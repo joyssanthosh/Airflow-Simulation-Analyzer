@@ -1,0 +1,54 @@
+{% extends "dashboard_base.html" %}
+{% block dashboard_content %}
+<div class="glass-panel" style="padding: 20px;">
+    <h2>Interactive Layout Builder</h2>
+    
+    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+        <!-- Left Column: Interactive Grid -->
+        <div style="flex: 2; min-width: 300px;">
+            <div id="interactiveGrid" style="display: grid; gap: 1px; background: rgba(255,255,255,0.5); border: 2px solid var(--primary-blue); padding: 2px; border-radius: 8px; box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);"></div>
+            
+            <div id="palette" style="margin-top: 15px;">
+                <h4 style="margin-bottom: 10px;">1. Select Tool:</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;" id="toolsContainer">
+                    <button class="btn tool-btn active" data-tool="vent" data-type="source">Vent</button>
+                    <button class="btn tool-btn" data-tool="window" data-type="source">Window</button>
+                    <button class="btn tool-btn" data-tool="door" data-type="empty">Door</button>
+                    <!-- Obstacles -->
+                    <button class="btn tool-btn" data-tool="bed" data-type="obstacle">Bed</button>
+                    <button class="btn tool-btn" data-tool="table" data-type="obstacle">Table</button>
+                    <button class="btn tool-btn" data-tool="sofa" data-type="obstacle">Sofa</button>
+                    <button class="btn tool-btn" data-tool="chair" data-type="obstacle">Chair</button>
+                    <button class="btn tool-btn" data-tool="wardrobe" data-type="obstacle">Wardrobe</button>
+                    <button class="btn tool-btn" data-tool="countertop" data-type="obstacle">Countertop</button>
+                    <button class="btn tool-btn" data-tool="cupboards" data-type="obstacle">Cupboards</button>
+                    <button class="btn tool-btn" data-tool="shower" data-type="obstacle">Shower</button>
+                    <button class="btn tool-btn" data-tool="sink" data-type="obstacle">Sink</button>
+                    <!-- Eraser -->
+                    <button class="btn tool-btn" data-tool="eraser" data-type="empty">Eraser</button>
+                </div>
+                <button class="btn btn-primary" id="updateSimBtn" style="margin-top: 15px; width: 100%;">Update Simulation</button>
+            </div>
+        </div>
+        
+        <!-- Right Column: Results -->
+        <div style="flex: 1; min-width: 250px;">
+            <div class="stat-card glass-panel" style="padding: 15px; margin-bottom: 15px;">
+                <h3>Dead Air Zone %</h3>
+                <div class="value" id="dashDeadAir" style="font-size: 24px;">--%</div>
+            </div>
+            <div class="stat-card glass-panel" style="padding: 15px; margin-bottom: 15px;">
+                <h3>Ventilation Score</h3>
+                <div class="value" id="dashVentScore" style="font-size: 24px;">--/100</div>
+            </div>
+            <div class="glass-panel" style="padding: 15px;">
+                <h3>Recommendations</h3>
+                <p id="dashRecommendation" style="color: var(--primary-blue); font-size: 14px; font-weight: 600;">Place items on the grid and update.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/interactive.js') }}"></script>
+{% endblock %}

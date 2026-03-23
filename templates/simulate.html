@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="center-wrapper">
+    <div class="glass-panel" style="width: 100%; max-width: 600px;">
+        <h2>Define Your Room Space</h2>
+        <form id="simulateForm" method="GET" action="{{ url_for('dashboard') }}">
+            <div class="form-group">
+                <label>Room Type</label>
+                <select name="room_type" required>
+                    <option value="Living Room">Living Room</option>
+                    <option value="Bedroom">Bedroom</option>
+                    <option value="Office">Office</option>
+                    <option value="Kitchen">Kitchen</option>
+                    <option value="Washroom">Washroom</option>
+                </select>
+            </div>
+            <div style="display: flex; gap: 20px;">
+                <div class="form-group" style="flex: 1;">
+                    <label>Width (m)</label>
+                    <input type="number" name="width" min="1" step="0.1" required>
+                </div>
+                <div class="form-group" style="flex: 1;">
+                    <label>Height/Depth (m)</label>
+                    <input type="number" name="length" min="1" step="0.1" required>
+                </div>
+            </div>
+            
+            <button type="button" class="btn btn-outline" style="margin-bottom: 15px;" onclick="document.getElementById('simulateForm').submit();">Save & Design</button>
+            <button type="submit" class="btn btn-primary">Run Simulation</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

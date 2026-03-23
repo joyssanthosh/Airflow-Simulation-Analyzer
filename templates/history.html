@@ -1,0 +1,32 @@
+{% extends "dashboard_base.html" %}
+{% block dashboard_content %}
+<div class="glass-panel" style="padding: 20px;">
+    <h2>User History</h2>
+    <table style="width: 100%; margin-top: 20px; border-collapse: collapse; text-align: left;">
+        <thead>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.2);">
+                <th style="padding: 10px; color: var(--cyan);">Room Type</th>
+                <th style="padding: 10px; color: var(--cyan);">Dimensions</th>
+                <th style="padding: 10px; color: var(--cyan);">Dead Air %</th>
+                <th style="padding: 10px; color: var(--cyan);">Vent. Score</th>
+                <th style="padding: 10px; color: var(--cyan);">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sim in simulations %}
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <td style="padding: 10px;">{{ sim.room_type }}</td>
+                <td style="padding: 10px;">{{ sim.width }}x{{ sim.height }}m</td>
+                <td style="padding: 10px;">{{ sim.dead_air_percentage }}%</td>
+                <td style="padding: 10px;">{{ sim.ventilation_score }}</td>
+                <td style="padding: 10px;">{{ sim.timestamp.strftime('%Y-%m-%d') }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5" style="padding: 20px; text-align: center; color: var(--text-muted);">No simulations run yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

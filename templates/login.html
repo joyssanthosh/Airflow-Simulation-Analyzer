@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="center-wrapper">
+    <div class="glass-panel" style="width: 100%; max-width: 450px;">
+        <div style="text-align: center;">
+            <img src="{{ url_for('static', filename='img/aeris_logo.png') }}" alt="Aeris" style="height: 60px; margin-bottom: 15px; border-radius: 10px;">
+            <h2>Login to Aeris</h2>
+        </div>
+        
+        <form method="POST" action="{{ url_for('login') }}">
+            <div class="form-group">
+                <input type="text" name="username" placeholder="Username / Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        
+        <div class="links">
+            <a href="#">Forgot Password?</a><br><br>
+            Don't have an account? <a href="{{ url_for('register') }}">Register</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

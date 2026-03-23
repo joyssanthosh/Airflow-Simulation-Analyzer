@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard-layout">
+    <div class="sidebar">
+        <div class="brand" style="display: flex; align-items: center; gap: 10px;">
+            <img src="{{ url_for('static', filename='img/aeris_logo.png') }}" alt="Aeris" style="height: 35px; border-radius: 6px;">
+            Aeris
+        </div>
+        <ul class="sidebar-nav">
+            {% if current_user.role == 'admin' %}
+            <li><a href="{{ url_for('admin_dashboard') }}">Admin Analytics</a></li>
+            {% else %}
+            <li><a href="{{ url_for('dashboard') }}">Overview</a></li>
+            <li><a href="{{ url_for('heatmap') }}">Heatmap</a></li>
+            <li><a href="{{ url_for('room_3d') }}">3D Room</a></li>
+            <li><a href="{{ url_for('history') }}">User History</a></li>
+            <li><a href="{{ url_for('export') }}">Export Report</a></li>
+            {% endif %}
+            <li style="margin-top: auto;"><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        {% block dashboard_content %}{% endblock %}
+    </div>
+</div>
+{% endblock %}

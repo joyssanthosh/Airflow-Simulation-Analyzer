@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="center-wrapper">
+    <div class="glass-panel" style="max-width: 700px; text-align: left;">
+        <h2 style="text-align: center; margin-bottom: 20px;">Understand the Airflow Simulation Analyzer</h2>
+        
+        <div style="margin-bottom: 20px;">
+            <h4 style="color: var(--cyan); margin-bottom: 5px;">1. What is Airflow Simulation?</h4>
+            <p style="font-size: 0.95rem;">An advanced, rule-based computational system that analyzes how air moves through virtual spaces to optimize room layout.</p>
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+            <h4 style="color: var(--cyan); margin-bottom: 5px;">2. Benefits for Interior Layout</h4>
+            <ul style="list-style-type: disc; margin-left: 20px; font-size: 0.95rem; color: var(--text-muted);">
+                <li>Improved Air Quality</li>
+                <li>Optimized Temperatures</li>
+                <li>Preventing Dead-Air Zones</li>
+                <li>Optimized Costs</li>
+            </ul>
+        </div>
+        
+        <div style="margin-bottom: 30px;">
+            <h4 style="color: var(--cyan); margin-bottom: 5px;">3. Process Overview</h4>
+            <p style="font-size: 0.95rem;">Input Dimensions &rarr; Place Vents & Obstacles &rarr; Simulate Diffusion &rarr; Analysis & Recommendations</p>
+        </div>
+        
+        <div style="text-align: center;">
+            <a href="{{ url_for('simulate') }}" class="btn btn-primary" style="width: auto;">Simulate Ventilation</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

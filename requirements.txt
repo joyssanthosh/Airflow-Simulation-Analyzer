@@ -1,0 +1,12 @@
+Flask
+Flask-SQLAlchemy
+Flask-Login
+Flask-Bcrypt
+flask-wtf
+email_validator
+PyMySQL
+numpy
+matplotlib
+plotly
+fpdf
+pandas

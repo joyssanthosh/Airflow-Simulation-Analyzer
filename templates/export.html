@@ -1,0 +1,59 @@
+{% extends "dashboard_base.html" %}
+{% block dashboard_content %}
+<div class="glass-panel" style="padding: 30px;">
+    <div style="text-align: center; margin-bottom: 30px;">
+        <h2 style="font-size: 2rem; margin-bottom: 5px;">Export Report Page</h2>
+        <p style="color: var(--text-muted);">Generate Ventilation Report</p>
+    </div>
+    
+    <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+        <!-- Left Column: Snapshots -->
+        <div style="flex: 2; display: flex; flex-direction: column; gap: 20px; min-width: 300px;">
+            <div class="glass-panel" style="padding: 15px; background: rgba(255, 255, 255, 0.05);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h4 style="margin: 0;">Heatmap snapshot</h4>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">Generates<br>Features<br>Openings</span>
+                </div>
+                <div id="exportHeatmapContainer" style="background: rgba(0,0,0,0.2); border-radius: 8px; min-height: 250px; display: flex; align-items: center; justify-content: center;">
+                    <p style="color: var(--text-muted);">No data loaded.</p>
+                </div>
+            </div>
+            
+            <div class="glass-panel" style="padding: 15px; background: rgba(255, 255, 255, 0.05);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h4 style="margin: 0;">3D room snapshot</h4>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">Interactive<br>Ventilation<br>Windows</span>
+                </div>
+                <div id="export3dContainer" style="background: rgba(0,0,0,0.2); border-radius: 8px; height: 250px; position: relative; overflow: hidden;">
+                    <p style="color: var(--text-muted);">No data loaded.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Buttons & Settings -->
+        <div style="flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 15px;">
+            <button id="btnDownloadPdf" class="btn btn-primary">Download PDF Report</button>
+            <button id="btnDownloadCsv" class="btn btn-primary">Download CSV Data</button>
+            <button id="btnDownloadHeatmapPng" class="btn btn-primary">Export Heatmap Image</button>
+            <button id="btnFullAnalytics" class="btn btn-primary">Full Analytics Summary</button>
+            
+            <div style="margin-top: 20px;">
+                <h4 style="margin-bottom: 10px;">Report contents:</h4>
+                <ul style="list-style-type: none; padding-left: 10px; color: var(--text-muted); line-height: 1.8;">
+                    <li>• Room Specs</li>
+                    <li>• Metrics</li>
+                    <li>• Recommendations</li>
+                    <li>• Snapshots</li>
+                </ul>
+            </div>
+            
+            <!-- Hidden form for PDF generation -->
+            <form id="pdfExportForm" method="POST" action="/export_pdf_data" style="display: none;">
+                <input type="hidden" name="heatmap_b64" id="heatmapInput">
+                <input type="hidden" name="room3d_b64" id="room3dInput">
+                <input type="hidden" name="metrics" id="metricsInput">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
