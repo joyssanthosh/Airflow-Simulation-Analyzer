@@ -19,9 +19,7 @@ This project focuses on intelligent layout analysis using symbolic (rule-based) 
 * Provide rule-based improvement recommendations
 * Visualize airflow using heatmaps and 3D animation
 
----
-
-## ⚙️ Core Features
+## Core Features
 
 * Layout input module
 * Grid-based airflow simulation engine
@@ -38,7 +36,7 @@ This project focuses on intelligent layout analysis using symbolic (rule-based) 
 
 ---
 
-## 🧠 Technical Approach
+## Technical Approach
 
 The system uses:
 
